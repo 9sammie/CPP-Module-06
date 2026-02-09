@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ScalarConvert.hpp                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: maballet <maballet@student.42lyon.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/20 11:57:10 by maballet          #+#    #+#             */
-/*   Updated: 2026/01/21 19:11:09 by maballet         ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef SCALARCONVERT_HPP
 #define SCALARCONVERT_HPP
 
@@ -20,26 +8,34 @@
 
 enum type
 {
-	INT = 1,
-	DOUBLE = 2,
-	FLOAT = 3,
-	CHAR = 4,
-	OTHER = 5,
+	INT,
+	DOUBLE,
+	FLOAT,
+	CHAR,
+	OTHER,
 };
 
 class ScalarConvert
 {
-	public:
+	private:
 	ScalarConvert();
-	ScalarConvert(const std::string literal);
+	ScalarConvert(const ScalarConvert&);
 	ScalarConvert& operator = (const ScalarConvert&);
 	~ScalarConvert();
-	
-	private:
+
+	public:
 	static void convert(const std::string& literal);
 };
 
 int literalType(const std::string& literal);
-void convertAndPrint(const std::string& literal, int type);
+void cast(const std::string& literal, int type);
+bool toCharFromInt(int i, char& c);
+bool toInt(const std::string& s, int& out);
+bool toDouble(const std::string& s, double& out);
+bool toFloatFromDouble(double d, float& f);
+void print_char(const bool& char_ok, const char& c);
+void print_int(const bool& int_ok, const int& i);
+void print_double(const bool& double_ok, const double& d);
+void print_float(const bool& float_ok, const float& f);
 
 #endif

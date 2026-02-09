@@ -1,4 +1,4 @@
-NAME		=		ScalarConvert
+NAME		=		RealType
 
 CXX			=		c++
 
@@ -12,7 +12,7 @@ MAKEFLAGS	+=		--no-print-directory -j$(nproc)
 ###									FILES									 ###
 ################################################################################
 
-SRC			=		main.cpp ScalarConvert.cpp convert.cpp cast.cpp print.cpp
+SRC			=		main.cpp Base.cpp
 
 OBJ			=		$(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
