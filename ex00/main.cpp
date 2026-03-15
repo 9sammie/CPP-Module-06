@@ -1,4 +1,4 @@
-#include "ScalarConvert.hpp"
+#include "ScalarConverter.hpp"
 
 int main(int argc, char **argv)
 {
@@ -7,6 +7,6 @@ int main(int argc, char **argv)
 		std::cout << "2 arguments expected as follow: ./ScalarConvert <argument>" << std::endl;
 		return 1;
 	}
-	ScalarConvert::convert(argv[1]);
+	ScalarConverter::convert(argv[1]);
 	return 0;
 }

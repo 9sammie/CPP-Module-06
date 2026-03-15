@@ -38,13 +38,13 @@ void identify(Base& p)
 	try
 	{
 		(void)dynamic_cast<B&>(p);
-		std::cout << " B " << STD << std::endl;
+		std::cout << GREEN << " B " << STD << std::endl;
 	}
 	catch (...) {}
 	try
 	{
 		(void)dynamic_cast<C&>(p);
-		std::cout << " C " << STD << std::endl;
+		std::cout << BLUE << " C " << STD << std::endl;
 	}
 	catch (...) {}
 }

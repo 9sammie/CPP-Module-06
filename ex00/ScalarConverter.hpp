@@ -1,5 +1,5 @@
-#ifndef SCALARCONVERT_HPP
-#define SCALARCONVERT_HPP
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
 #include <iostream>
 #include <limits>
@@ -15,13 +15,13 @@ enum type
 	OTHER,
 };
 
-class ScalarConvert
+class ScalarConverter
 {
 	private:
-	ScalarConvert();
-	ScalarConvert(const ScalarConvert&);
-	ScalarConvert& operator = (const ScalarConvert&);
-	~ScalarConvert();
+	ScalarConverter();
+	ScalarConverter(const ScalarConverter&);
+	ScalarConverter& operator = (const ScalarConverter&);
+	~ScalarConverter();
 
 	public:
 	static void convert(const std::string& literal);

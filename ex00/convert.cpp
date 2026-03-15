@@ -1,4 +1,4 @@
-#include "ScalarConvert.hpp"
+#include "ScalarConverter.hpp"
 #include <cerrno>
 #include <climits>
 
@@ -31,9 +31,7 @@ bool toDouble(const std::string& s, double& out)
 
 	if (*end != '\0' || errno == ERANGE)
 		return false;
-	if (out > static_cast<double>(std::numeric_limits<int>::max()) ||
-		out > static_cast<double>(std::numeric_limits<int>::max()))
-		return false;
+
 	return true;
 }
 

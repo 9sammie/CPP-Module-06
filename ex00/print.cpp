@@ -1,4 +1,4 @@
-#include "ScalarConvert.hpp"
+#include "ScalarConverter.hpp"
 #include <iomanip>
 
 void print_char(const bool& char_ok, const char& c)

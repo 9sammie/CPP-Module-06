@@ -1,4 +1,4 @@
-#include "ScalarConvert.hpp"
+#include "ScalarConverter.hpp"
 #include <climits>
 
 int literalType(const std::string& str)
