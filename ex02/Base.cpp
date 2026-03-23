@@ -21,9 +21,9 @@ void identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
 		std::cout << PINK << " A " << STD << std::endl;
-	if (dynamic_cast<B*>(p))
+	else if (dynamic_cast<B*>(p))
 		std::cout << GREEN << " B " << STD << std::endl;
-	if (dynamic_cast<C*>(p))
+	else if (dynamic_cast<C*>(p))
 		std::cout << BLUE << " C " << STD << std::endl;
 }
 
