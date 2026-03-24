@@ -8,7 +8,7 @@ void print_char(const bool& char_ok, const char& c)
 	else if (!std::isprint(c))
 		std::cout << "char: Non displayable\n";
 	else
-		std::cout << "char: '" << c << "'\n";
+		std::cout << "char: '" << c << "\n";
 }
 
 void print_int(const bool& int_ok, const int& i)
@@ -29,9 +29,8 @@ void print_double(const bool& double_ok, const double& d)
 		std::cout << "double: " << (d < 0 ? "-inf\n" : "+inf\n");
 	else
 	{
-        std::cout << "double: ";
-        std::cout << std::fixed << std::setprecision(1);
-        std::cout << d << "\n";
+        std::cout << "double: " << std::fixed << std::setprecision(1) << d;
+        std::cout << "\n";
 	}
 }
 

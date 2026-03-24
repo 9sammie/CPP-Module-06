@@ -27,12 +27,27 @@ class ScalarConverter
 	static void convert(const std::string& literal);
 };
 
+
+
 int literalType(const std::string& literal);
 void cast(const std::string& literal, int type);
-bool toCharFromInt(int i, char& c);
-bool toInt(const std::string& s, int& out);
-bool toDouble(const std::string& s, double& out);
-bool toFloatFromDouble(double d, float& f);
+
+bool stringToInt(const std::string& s, int& i);
+bool stringToDouble(const std::string& s, double& d);
+bool stringToFloat(const std::string& s, float& f);
+
+bool intToChar(int i, char& c);
+bool intToDouble(int i, double& d);
+bool intToFloat(int i, float& f);
+
+bool doubleToChar(double d, char& c);
+bool doubleToInt(double d, int& i);
+bool doubleToFloat(double d, float& f);
+
+bool floatToChar(float f, char& c);
+bool floatToInt(float f, int& i);
+bool floatToDouble(float f, double& d);
+
 void print_char(const bool& char_ok, const char& c);
 void print_int(const bool& int_ok, const int& i);
 void print_double(const bool& double_ok, const double& d);

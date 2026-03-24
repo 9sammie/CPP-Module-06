@@ -69,40 +69,21 @@ void cast(const std::string& str, int type)
 			break;
 
 		case INT:
-			int_ok = toInt(str, i);
+			int_ok = stringToInt(str, i);
 			if (!int_ok)
 			{
 				char_ok  = false;
-				double_ok = toDouble(str, d);
-				float_ok = double_ok && toFloatFromDouble(d, f);
+				double_ok = intToDouble(i, d);
+				float_ok = double_ok && intToFloat(i, f);
 				break;
 			}
-			char_ok = toCharFromInt(i, c);
-			d = static_cast<double>(i);
-			f = static_cast<float>(i);
+			char_ok = intToChar(i, c);
+			double_ok = intToDouble(i, d);
+			float_ok = intToFloat(i, f);
 			break;
 
-		case FLOAT:
-    	    if (!tmp.empty() && tmp.back() == 'f')
-    	        tmp.pop_back();
-		
-    	    double_ok = toDouble(tmp, d);
-    	    if (!double_ok)
-    	    {
-    	        invalidate_all(char_ok, int_ok, double_ok, float_ok);
-    	        break;
-    	    }
-		
-    	    int_ok = (d >= INT_MIN && d <= INT_MAX);
-    	    if (int_ok)
-    	        i = static_cast<int>(d);
-		
-    	    char_ok = int_ok && toCharFromInt(i, c);
-    	    float_ok = toFloatFromDouble(d, f);
-	    	break;
-		
 		case DOUBLE:
-			double_ok = toDouble(str, d);
+			double_ok = stringToDouble(str, d);
 			if (!double_ok)
 			{
 				invalidate_all(char_ok, int_ok, double_ok, float_ok);			
@@ -110,10 +91,28 @@ void cast(const std::string& str, int type)
 			}
 			int_ok = (d >= INT_MIN && d <= INT_MAX);
 			if (int_ok)
-				i = static_cast<int>(d);
-			char_ok = int_ok && toCharFromInt(i, c);
-			float_ok = toFloatFromDouble(d, f);
+				int_ok = doubleToInt(d, i);
+			char_ok = int_ok && doubleToChar(d, c);
+			float_ok = doubleToFloat(d, f);
 			break;
+
+		case FLOAT:
+    	    if (!tmp.empty() && tmp.back() == 'f')
+    	        tmp.pop_back();
+		
+    	    float_ok = stringToFloat(tmp, f);
+    	    if (!float_ok)
+    	    {
+    	        invalidate_all(char_ok, int_ok, double_ok, float_ok);
+    	        break;
+    	    }
+		
+			double_ok = floatToDouble(f, d);
+    	    int_ok = (d >= INT_MIN && d <= INT_MAX);
+    	    if (int_ok)
+    	        int_ok = floatToInt(f, i);
+    	    char_ok = int_ok && floatToChar(f, c);
+	    	break;
 
 		default:
 			char_ok = int_ok = float_ok = double_ok = false;
